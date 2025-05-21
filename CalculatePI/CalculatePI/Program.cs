@@ -4,12 +4,58 @@
 const decimal pi = 3.14159265358979323846264338327950288419716M;
 Console.WriteLine($"PI is {pi}");
 
-GregoryLeibniz();
+var rnd = new Random();
+var inCircle = 1.0;
+var bestDP = 0;
+var i = 1;
+while (true)
+{
+    var x = (rnd.NextDouble()*2)-1;
+    var y = (rnd.NextDouble()*2)-1;
+    var d = Math.Abs(Math.Sqrt((x * x) + (y * y)));
+
+    if (d < 1)
+        inCircle++;
+
+    var attempt = (decimal)(inCircle / i) * 4;
+    var score = CountCommonDecimalPlaces(attempt);
+    if (score > bestDP)
+    {
+        Console.WriteLine($"{attempt} matches {score}dp with {i} iterations");
+        bestDP = score;
+    }
+
+    i++;
+}
+
+
+//GregoryLeibniz();
 //Fractions();
+// Nilakantha();
 
 Console.WriteLine("Done");
 
 return;
+
+void Nilakantha()
+{
+    var sign = 1;
+    var d = 2;
+    decimal attempt = 3;
+    var bestDP = -1;
+    for (var n = 1; n < 50000; n++)
+    {
+        attempt += ((4 / (decimal)(d * (d+1) * (d+2))) * sign);
+        sign = -sign;
+        d += 2;
+        var score = CountCommonDecimalPlaces(attempt);
+        if (score > bestDP)
+        {
+            Console.WriteLine($"{attempt} matches {score}dp with {n} iterations");
+            bestDP = score;
+        }
+    } 
+}
 
 void GregoryLeibniz()
 {
@@ -28,7 +74,6 @@ void GregoryLeibniz()
             Console.WriteLine($"{attempt} matches {score}dp with {n} iterations");
             bestDP = score;
         }
-        
     }
 }
 

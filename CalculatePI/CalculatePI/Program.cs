@@ -4,34 +4,66 @@
 const decimal pi = 3.14159265358979323846264338327950288419716M;
 Console.WriteLine($"PI is {pi}");
 
-
-var bestR = -1.0M;
-var bestD = -1.0M;
-var bestDp = -1;
-
-for (decimal d = 1; d < 100000; d++)
-{
-    for (var r = d*3; r < d*4; r++)
-    {
-        var attempt = r / d;
-        var score = CountCommonDecimalPlaces(attempt);
-        if (score > bestDp)
-        {
-            bestDp = score;
-            bestR = r;
-            bestD = d;
-            Console.WriteLine($"{bestR}/{bestD} == {attempt} is {bestDp}dp");
-        }
-    }
-}
+GregoryLeibniz();
+//Fractions();
 
 Console.WriteLine("Done");
 
 return;
 
+void GregoryLeibniz()
+{
+    var sign = 1;
+    var d = 1;
+    decimal attempt = 0;
+    var bestDP = -1;
+    for (var n = 1; n < 50000000; n++)
+    {
+        attempt += ((4 / (decimal)d) * sign);
+        sign = -sign;
+        d += 2;
+        var score = CountCommonDecimalPlaces(attempt);
+        if (score > bestDP)
+        {
+            Console.WriteLine($"{attempt} matches {score}dp with {n} iterations");
+            bestDP = score;
+        }
+        
+    }
+}
+
+void Fractions()
+{
+    var bestR = -1.0M;
+    var bestD = -1.0M;
+    var bestDp = -1;
+
+    for (decimal d = 1; d < 100000; d++)
+    {
+        for (var r = d*3; r < d*4; r++)
+        {
+            var attempt = r / d;
+            var score = CountCommonDecimalPlaces(attempt);
+            if (score > bestDp)
+            {
+                bestDp = score;
+                bestR = r;
+                bestD = d;
+                Console.WriteLine($"{bestR}/{bestD} == {attempt} is {bestDp}dp");
+            }
+        }
+    }
+}
+
 static int CountCommonDecimalPlaces(decimal a)
 {
     if (a is < 3 or > 4) return 0;
+
+    // if (a == 3.14159265358979323846264338327950288419716M) return 1000;
+    // if (a == 3.14159265358979323846264338327950288419716M) return 1000;
+    // if (a == 3.14159265358979323846264338327950288419716M) return 1000;
+    // if (a == 3.1M) return 1000;
+
     
     a = Math.Abs(a);
     var b = pi;

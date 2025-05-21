@@ -4,7 +4,7 @@
 Calculate PI using 22/7.   How many decimal places is this correct to?
 
 ## Exercise 2
-Can you find a division which is accurate to more decimal places?
+Can you find a different division which is accurate to more decimal places?
 
 ## Exercise 3
 Try using the Gregory-Leibniz series
@@ -37,9 +37,9 @@ Steps are...
 
 The following formula can be used to test if X,Y is inside the circle.
 
-Distance = $ \sqrt{X^2 + Y^2} $
+$Distance = |\sqrt{X^2 + Y^2}|$
 
-If Distance is between -1 and 1 then the dart is with the circle.
+If Distance is < 1 then the dart is with the circle.
 
 
 

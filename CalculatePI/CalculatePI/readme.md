@@ -16,13 +16,13 @@ How many iterations do you need to get a number accurate to 5 decimal places?
 ## Exercise 4
 Try using the Nilakantha series.
 
-π = $3 + \dfrac{4}{2\times3\times4} - \dfrac{4}{4\times5\times6} + \dfrac{4}{6\times7\times8} - \dfrac{4}{8\times9\times10} + \dfrac{4}{10\times11\times12} - \dfrac{4}{12\times13\times44}$ ...
+π = $3 + \dfrac{4}{2\times3\times4} - \dfrac{4}{4\times5\times6} + \dfrac{4}{6\times7\times8} - \dfrac{4}{8\times9\times10} + \dfrac{4}{10\times11\times12} - \dfrac{4}{12\times13\times14}$ ...
 
 ## Exercise 5
 Using random numbers!  
 
 Imagine you have a circle inscribed inside a square.
-You then throw darts at random at the square
+You then throw darts at random at the square.
 The number of darts inside the circle divided the number of darts will then give you a value for PI.
 
 Steps are...

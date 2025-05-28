@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatePI", "CalculatePI\CalculatePI.csproj", "{633C5D4F-3BCC-41EE-98B4-AA73B6DBF885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro", "Intro\Intro.csproj", "{2578D206-44CD-410F-A0E4-4AFE6915B364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{633C5D4F-3BCC-41EE-98B4-AA73B6DBF885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{633C5D4F-3BCC-41EE-98B4-AA73B6DBF885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{633C5D4F-3BCC-41EE-98B4-AA73B6DBF885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2578D206-44CD-410F-A0E4-4AFE6915B364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2578D206-44CD-410F-A0E4-4AFE6915B364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2578D206-44CD-410F-A0E4-4AFE6915B364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2578D206-44CD-410F-A0E4-4AFE6915B364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

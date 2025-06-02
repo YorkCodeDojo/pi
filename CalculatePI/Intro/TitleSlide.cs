@@ -5,7 +5,7 @@ using Avalonia.Media;
 
 namespace Intro;
 
-public class TextControl(string textToDisplay) : Control, IPage
+public class TitleSlide(string textToDisplay) : Control, ISlide
 {
     public DisplayResult Display(bool reset)
     {

@@ -6,7 +6,7 @@ public enum DisplayResult
     MoreToDisplay
 }
 
-public interface IPage
+public interface ISlide
 {
     /// <summary>
     /// Returns Completed if the completed page is already displayed, and the next page needs to be displayed.

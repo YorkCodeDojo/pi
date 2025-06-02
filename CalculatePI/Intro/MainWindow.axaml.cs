@@ -6,40 +6,45 @@ namespace Intro;
 
 public partial class MainWindow : Window
 {
-    private readonly IPage[] _pages =
+    private readonly ISlide[] _slides =
     [
-        new AreaControl(),
-        new TextControl("π"),
-        new AnimatedCircleControl()
+        new TitleSlide("π"),
+        new CircumferenceSlide(),
+        new AreaSlide(),
+        new RatioSlide(),
+        new FinalSide(),
     ];
 
-    private int _pageNumber = 0;
+    private int _slideNumber = 0;
    
     public MainWindow()
     {
         InitializeComponent();
-        Switcher.Content = _pages[_pageNumber];
-        _pages[_pageNumber].Display(true);
+        Switcher.Content = _slides[_slideNumber];
+        _slides[_slideNumber].Display(true);
     }
 
     protected override void OnKeyDown(KeyEventArgs e)
     {
         if (e.Key == Key.P)
         {
-            _pageNumber = Math.Max(0, _pageNumber - 1);
-            var previousPage = _pages[_pageNumber];
+            // P for previous slide
+            _slideNumber = Math.Max(0, _slideNumber - 1);
+            var previousPage = _slides[_slideNumber];
             Switcher.Content = previousPage;
             previousPage.Display(true);
         }
+        
         else if (e.Key == Key.Space)
         {
-            if (_pages[_pageNumber].Display(false) == DisplayResult.Completed)
+            // Space bar to either build this slide, or advance to the following slide
+            if (_slides[_slideNumber].Display(false) == DisplayResult.Completed)
             {
                 // Page is complete, display the next page
-                _pageNumber = (_pageNumber + 1) % _pages.Length;
-                var nextPage = _pages[_pageNumber];
-                Switcher.Content = nextPage;
-                nextPage.Display(true);
+                _slideNumber = (_slideNumber + 1) % _slides.Length;
+                var nextSlide = _slides[_slideNumber];
+                Switcher.Content = nextSlide;
+                nextSlide.Display(true);
             }
         }
     }

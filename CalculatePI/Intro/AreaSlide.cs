@@ -8,7 +8,7 @@ using Avalonia.Threading;
 
 namespace Intro;
 
-public class AreaControl : Control, IPage
+public class AreaSlide : Control, ISlide
 {
     private double _sweepAngle = 0;
     private double _divideAngle = 0;
@@ -17,7 +17,7 @@ public class AreaControl : Control, IPage
     private int _state = 0;
     private readonly List<Point> _divisions = [];
     
-    public AreaControl()
+    public AreaSlide()
     {
         _timer = new DispatcherTimer
         {

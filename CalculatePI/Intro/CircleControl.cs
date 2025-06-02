@@ -7,15 +7,15 @@ using Avalonia.Threading;
 
 namespace Intro;
 
-public class AnimatedCircleControl : Control, IPage
+public class CircumferenceSlide : Control, ISlide
 {
     private double _sweepAngle = 0;
-    private double _linrLength = 0;
+    private double _lineLength = 0;
     private readonly DispatcherTimer _timer;
     private int _state = 0;
     
     
-    public AnimatedCircleControl()
+    public CircumferenceSlide()
     {
         _timer = new DispatcherTimer
         {
@@ -36,10 +36,10 @@ public class AnimatedCircleControl : Control, IPage
             if (_state == 2)
             {
                 var radius = Math.Min(Bounds.Width, Bounds.Height) / 2 - 20;
-                _linrLength += 10;
-                if (_linrLength >= (radius * 2))
+                _lineLength += 10;
+                if (_lineLength >= (radius * 2))
                 {
-                    _linrLength = radius * 2;
+                    _lineLength = radius * 2;
                     _timer.Stop();
                 }
             }
@@ -61,22 +61,15 @@ public class AnimatedCircleControl : Control, IPage
         if (_state == 1)
         {
             _state = 2;
-            _linrLength = 0;
+            _lineLength = 0;
             _timer.Start();
             InvalidateVisual();
             return DisplayResult.MoreToDisplay;
         }
 
-        if (_state == 2)
+        if (_state is >= 2 and < 5 )
         {
-            _state = 3;
-            InvalidateVisual();
-            return DisplayResult.MoreToDisplay;
-        }
-        
-        if (_state == 3)
-        {
-            _state = 4;
+            _state++;
             InvalidateVisual();
             return DisplayResult.MoreToDisplay;
         }
@@ -111,27 +104,29 @@ public class AnimatedCircleControl : Control, IPage
             DrawCompletedCircle(context, circlePen, center, radius);
             context.DrawLine(pen, 
                 new Point(center.X - radius, Bounds.Height / 2), 
-                new Point(center.X - radius + _linrLength, Bounds.Height / 2));
+                new Point(center.X - radius + _lineLength, Bounds.Height / 2));
 
-            if (_linrLength >= radius * 2)
+            if (_lineLength >= radius * 2)
             {
                 DrawCompletedLine(context, pen, center, radius);
             }
         }
 
-        if (_state == 3)
+        if (_state >= 3)
         {
             DrawCompletedCircle(context, circlePen, center, radius);
             DrawCompletedLine(context, pen, center, radius);
             EquationOne(context, center);
         }
         
-        if (_state == 4)
+        if (_state >= 4)
         {
-            DrawCompletedCircle(context, circlePen, center, radius);
-            DrawCompletedLine(context, pen, center, radius);
-            EquationOne(context, center);
             EquationTwo(context, center);
+        }
+        
+        if (_state >= 5)
+        {
+            EquationThree(context, center);
         }
     }
 
@@ -153,26 +148,28 @@ public class AnimatedCircleControl : Control, IPage
     private static void EquationTwo(DrawingContext context, Point center)
     {
         var formattedText = new FormattedText(
-            "c = π d", 
+            "c = π d",
             CultureInfo.CurrentUICulture,
-            FlowDirection.LeftToRight, 
-            new Typeface("Segoe UI"), 
-            100, 
+            FlowDirection.LeftToRight,
+            new Typeface("Segoe UI"),
+            100,
             Brushes.White);
 
         var origin = new Point(center.X - 200, center.Y + 50);
 
         context.DrawText(formattedText, origin);
-        
-        formattedText = new FormattedText(
-            "c = 2 π r", 
-            CultureInfo.CurrentUICulture,
-            FlowDirection.LeftToRight, 
-            new Typeface("Segoe UI"), 
-            100, 
-            Brushes.White);
+    }
+    private static void EquationThree(DrawingContext context, Point center)
+    {
+        var formattedText = new FormattedText(
+                "c = 2 π r", 
+                CultureInfo.CurrentUICulture,
+                FlowDirection.LeftToRight, 
+                new Typeface("Segoe UI"), 
+                100, 
+                Brushes.White);
 
-        origin = new Point(center.X - 200, center.Y + 150);
+        var origin = new Point(center.X - 200, center.Y + 150);
 
         context.DrawText(formattedText, origin);
     }

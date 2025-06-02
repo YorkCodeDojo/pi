@@ -20,6 +20,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        this.WindowState = WindowState.Maximized;
         Switcher.Content = _slides[_slideNumber];
         _slides[_slideNumber].Display(true);
     }

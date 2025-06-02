@@ -152,13 +152,13 @@ public class AreaSlide : Control, ISlide
             // Slide slices together
             for (var xOffset = 0; xOffset < 10; xOffset++)
             {
-                var piece = DrawBottomSlice(new Point(60 + (xOffset * 120), center.Y - _slide), radius);
+                var piece = DrawBottomSlice(new Point(90 + (xOffset * 160), center.Y - _slide), radius);
                 context.DrawGeometry(Brushes.Blue, new Pen(Brushes.Yellow, 2), piece);
             }
 
             for (var xOffset = 0; xOffset < 10; xOffset++)
             {
-                var piece = DrawTopSlice(new Point(120 + (xOffset * 120), center.Y + _slide), radius);
+                var piece = DrawTopSlice(new Point(170 + (xOffset * 160), center.Y + _slide), radius);
                 context.DrawGeometry(Brushes.Red, new Pen(Brushes.Green, 2), piece);
             }
         }
@@ -193,7 +193,7 @@ public class AreaSlide : Control, ISlide
         }
         if (_state >= 9)
         {
-            DisplayText(context, new Point(60, Bounds.Height - 100), "Area = π r\u00b2");
+            DisplayText(context, new Point(60, Bounds.Height - 150), "Area = π r\u00b2");
         }
     }
 

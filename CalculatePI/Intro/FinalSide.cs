@@ -77,7 +77,7 @@ public class FinalSide : Control, ISlide
 
         while (remaining > 0)
         {
-            var toWrite = Math.Min(116, remaining);
+            var toWrite = Math.Min(150, remaining);
             WritePiDigits(context, _pi[start..(start+toWrite)], line);
             line++;
             start += toWrite;

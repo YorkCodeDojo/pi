@@ -8,11 +8,15 @@ public partial class MainWindow : Window
 {
     private readonly ISlide[] _slides =
     [
+        new ImageSlide("Images/York_Code_Dojo.jpg"),
+        new ImageSlide("Images/ethos.jpg"),
         new TitleSlide("π"),
         new CircumferenceSlide(),
         new AreaSlide(),
-        new RatioSlide(),
         new FinalSide(),
+        new ImageSlide("Images/pascal.jpg"),
+        new RatioSlide(),
+        new TitleSlide("π"),
     ];
 
     private int _slideNumber = 0;

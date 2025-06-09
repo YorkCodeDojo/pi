@@ -8,7 +8,7 @@ using Avalonia.Threading;
 
 namespace Intro;
 
-public class FinalSide : Control, ISlide
+public class WhatIsPiSlide : Control, ISlide
 {
     private int _state = 0;
     private int _digitCount = 0;
@@ -16,7 +16,7 @@ public class FinalSide : Control, ISlide
     private readonly DispatcherTimer _timer;
 
 
-    public FinalSide()
+    public WhatIsPiSlide()
     {
         _pi = File.ReadAllText("pi.txt").Replace(" ", "").Replace(System.Environment.NewLine, "");
         
@@ -48,7 +48,7 @@ public class FinalSide : Control, ISlide
             return DisplayResult.MoreToDisplay;
         }
         
-        if (_state >= 1 )
+        if (_state == 1 )
         {
             _state++;
             _timer.Start();
@@ -101,11 +101,11 @@ public class FinalSide : Control, ISlide
     private void DrawQuestion(DrawingContext context)
     {
         var formattedText = new FormattedText(
-            "π?", 
+            "Finding π", 
             CultureInfo.CurrentUICulture,
             FlowDirection.LeftToRight, 
             new Typeface("Segoe UI"), 
-            500, 
+            100, 
             Brushes.White);
 
         var center = new Point(Bounds.Width / 2, Bounds.Height / 2);

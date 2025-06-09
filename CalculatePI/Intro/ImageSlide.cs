@@ -5,7 +5,7 @@ using Avalonia.Media.Imaging;
 
 namespace Intro;
 
-public class ImageSlide(string filename): Control, ISlide
+public class ImageSlide(string filename, int? width = null, int? height = null): Control, ISlide
 {
     public DisplayResult Display(bool reset)
     {
@@ -22,8 +22,9 @@ public class ImageSlide(string filename): Control, ISlide
 
         var image = new Bitmap(filename);
         context.DrawImage(image, new Rect(
-            (Bounds.Width - image.Size.Width) / 2,
-            (Bounds.Height - image.Size.Height) / 2,
-            image.Size.Width,image.Size.Height) );
+            (Bounds.Width - (width ?? image.Size.Width)) / 2,
+            (Bounds.Height - (height ??  image.Size.Height)) / 2,
+            width ?? image.Size.Width,
+            height ?? image.Size.Height) );
     }
 }

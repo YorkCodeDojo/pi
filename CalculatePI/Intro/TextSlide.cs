@@ -5,7 +5,7 @@ using Avalonia.Media;
 
 namespace Intro;
 
-public class TitleSlide(string textToDisplay) : Control, ISlide
+public class TextSlide(string textToDisplay, int fontSize = 500) : Control, ISlide
 {
     public DisplayResult Display(bool reset)
     {
@@ -25,7 +25,7 @@ public class TitleSlide(string textToDisplay) : Control, ISlide
             CultureInfo.CurrentUICulture,
             FlowDirection.LeftToRight, 
             new Typeface("Segoe UI"), 
-            500, 
+            fontSize, 
             Brushes.White);
 
         var center = new Point(Bounds.Width / 2, Bounds.Height / 2);

@@ -8,15 +8,18 @@ public partial class MainWindow : Window
 {
     private readonly ISlide[] _slides =
     [
-        new ImageSlide("Images/York_Code_Dojo.jpg"),
+        new ImageSlide("Images/York_Code_Dojo.jpg", 800, 600),
         new ImageSlide("Images/ethos.jpg"),
-        new TitleSlide("π"),
+
+        new TextSlide("π"),
         new CircumferenceSlide(),
         new AreaSlide(),
-        new FinalSide(),
+        
+        new WhatIsPiSlide(),
+        new UrlSlide("https://demonstrations.wolfram.com/ApproximatingPiWithInscribedPolygons/", 40),
         new ImageSlide("Images/pascal.jpg"),
         new RatioSlide(),
-        new TitleSlide("π"),
+        new UrlSlide("https://github.com/YorkCodeDojo/pi", 100),
     ];
 
     private int _slideNumber = 0;

@@ -42,4 +42,6 @@ $Distance = |\sqrt{X^2 + Y^2}|$
 If Distance is < 1 then the dart is with the circle.
 
 
+# Exercise 6
 
+Plot some graphs shpwing the number of decimal places against the number of iterations.

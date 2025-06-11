@@ -185,10 +185,10 @@ public class CircumferenceSlide : Control, ISlide
             CultureInfo.CurrentUICulture,
             FlowDirection.LeftToRight, 
             new Typeface("Segoe UI"), 
-            50, 
+            100, 
             Brushes.White);
 
-        var origin = new Point(center.X + radius + 50, Bounds.Height / 2);
+        var origin = new Point(center.X + radius + 50, (Bounds.Height / 2) - 50);
 
         context.DrawText(formattedText, origin);
     }
@@ -202,11 +202,10 @@ public class CircumferenceSlide : Control, ISlide
             CultureInfo.CurrentUICulture,
             FlowDirection.LeftToRight, 
             new Typeface("Segoe UI"), 
-            50, 
+            100, 
             Brushes.White);
 
-        var origin = new Point(center.X + 250, 
-            30);
+        var origin = new Point(center.X + 300, 30);
 
         context.DrawText(formattedText, origin);
     }

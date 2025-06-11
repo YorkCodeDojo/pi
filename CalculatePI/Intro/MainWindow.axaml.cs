@@ -8,8 +8,10 @@ public partial class MainWindow : Window
 {
     private readonly ISlide[] _slides =
     [
-        new ImageSlide("Images/York_Code_Dojo.jpg", 800, 600),
+        new ImageSlide("Images/logo.jpg", 800),
+        new ListSlide(["Networking and Food", "Explain Problem", "Work In Pairs", "Present", "Pub"]),
         new ImageSlide("Images/ethos.jpg"),
+        
 
         new TextSlide("π"),
         new CircumferenceSlide(),

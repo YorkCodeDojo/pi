@@ -44,4 +44,4 @@ If Distance is < 1 then the dart is with the circle.
 
 # Exercise 6
 
-Plot some graphs shpwing the number of decimal places against the number of iterations.
+Plot some graphs showing the number of decimal places against the number of iterations.
